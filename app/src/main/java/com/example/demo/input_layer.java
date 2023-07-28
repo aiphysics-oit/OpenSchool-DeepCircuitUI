@@ -20,8 +20,6 @@ public class input_layer extends AppCompatActivity {
     public void question1y(){
         int q1_Q1_1 = 1;
 //        System.out.println(q1_Q1_1);
-
-
     }
     public void question1n(){
         int q1_Q1_1 = 0;
