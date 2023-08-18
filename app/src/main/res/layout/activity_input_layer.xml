@@ -7,7 +7,7 @@
     tools:context=".input_layer">
 
 
-    <EditText
+    <TextView
         android:id="@+id/inputLayoutTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -34,7 +34,7 @@
         app:layout_constraintTop_toBottomOf="@+id/inputLayoutTitle" />
 
     <Button
-        android:id="@+id/question1Yes1_2"
+        android:id="@+id/Q1Yes"
         android:layout_width="174dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -42,22 +42,24 @@
         android:onClick="question1y"
         android:text="@string/yes"
         android:textColor="@color/color_selector"
-        app:layout_constraintEnd_toStartOf="@+id/question1No1_2"
+        android:backgroundTint="@color/background_selector"
+        app:layout_constraintEnd_toStartOf="@+id/Q1No"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/question1Text_1" />
 
     <Button
-        android:id="@+id/question1No1_2"
+        android:id="@+id/Q1No"
         android:layout_width="180dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:onClick="question1n"
         android:text="@string/no"
         android:textColor="@color/color_selector"
+        android:backgroundTint="@color/background_selector"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/question1Yes1_2"
+        app:layout_constraintStart_toEndOf="@+id/Q1Yes"
         app:layout_constraintTop_toBottomOf="@+id/question1Text_1" />
 
 
@@ -70,30 +72,32 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/question1No1_2" />
+        app:layout_constraintTop_toBottomOf="@+id/Q1No" />
 
     <Button
-        android:id="@+id/question1Yes2_2"
+        android:id="@+id/Q2Yes"
         android:layout_width="174dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:backgroundTint="@color/background_selector"
         android:onClick="question2y"
         android:text="@string/yes"
         android:textColor="@color/color_selector"
-        app:layout_constraintEnd_toStartOf="@+id/question1No1_2"
+        app:layout_constraintEnd_toStartOf="@+id/Q1No"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/question1Text_2" />
 
     <Button
-        android:id="@+id/question1No2_2"
+        android:id="@+id/Q2No"
         android:layout_width="180dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
+        android:backgroundTint="@color/background_selector"
         android:onClick="question2n"
         android:text="@string/no"
         android:textColor="@color/color_selector"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/question1Yes1_2"
+        app:layout_constraintStart_toEndOf="@+id/Q1Yes"
         app:layout_constraintTop_toBottomOf="@+id/question1Text_2" />
 
     <TextView
@@ -103,48 +107,52 @@
         android:layout_marginTop="8dp"
         android:text="@string/Q1_3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.455"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/question1No2_2" />
+        app:layout_constraintTop_toBottomOf="@+id/Q2No" />
 
     <Button
-        android:id="@+id/question1Yes3_2"
+        android:id="@+id/Q3Yes"
         android:layout_width="174dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:backgroundTint="@color/background_selector"
         android:onClick="question3y"
         android:text="@string/yes"
         android:textColor="@color/color_selector"
-        app:layout_constraintEnd_toStartOf="@+id/question1No1_2"
+        app:layout_constraintEnd_toStartOf="@+id/Q1No"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/question1Text_3" />
 
     <Button
-        android:id="@+id/question1No3_2"
+        android:id="@+id/Q3No"
         android:layout_width="180dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
+        android:backgroundTint="@color/background_selector"
         android:onClick="question3n"
         android:text="@string/no"
         android:textColor="@color/color_selector"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.51"
-        app:layout_constraintStart_toEndOf="@+id/question1Yes1_2"
+        app:layout_constraintStart_toEndOf="@+id/Q1Yes"
         app:layout_constraintTop_toBottomOf="@+id/question1Text_3" />
 
     <ImageView
-        android:id="@+id/question2Image"
+        android:id="@+id/image1"
         android:layout_width="232dp"
         android:layout_height="238dp"
         android:layout_gravity="center"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
+        android:src="@drawable/apple"
         app:layout_constraintBottom_toTopOf="@+id/question1Text_1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/inputLayoutTitle"
         app:layout_constraintVertical_bias="0.0" />
+    <!--app:srcCompat ="@android:drawable/apple"-->
 
     <Button
         android:id="@+id/question1Next_3"
@@ -152,12 +160,13 @@
         android:layout_height="39dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
+        android:backgroundTint="@color/background_selector"
         android:onClick="next1_1"
         android:text="@string/next"
         android:textColor="@color/color_selector"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/question1No3_2"
+        app:layout_constraintTop_toBottomOf="@+id/Q3No"
         app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
