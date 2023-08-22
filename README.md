@@ -35,11 +35,12 @@ git clone https://github.com/[ユーザー名]/[リポジトリ名].git
 ```
 git fetch
 ```
+リモートの「master」ブランチ → ローカルの「origin/master」ブランチ
 #### リモートリポジトリからローカルリポジトリへ
 ```
 git merge
 ```
-
+ローカルの「origin/master」ブランチ → ローカルの「master」ブランチ
 ### [エラーと対処法]
 
 #### git push origin main 時のエラー
