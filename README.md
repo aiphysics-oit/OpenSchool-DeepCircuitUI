@@ -39,3 +39,22 @@ git fetch
 ```
 git merge
 ```
+
+### [エラーと対処法]
+
+#### git push origin main 時のエラー
+```
+failed to push some refs to...
+```
+##### 原因
+一度pushしたリポジトリにGitHub上でREADME.mdファイルを作成後に再度pushしようとした事
+##### 対処法
+```
+git fetch
+```
+してリモートの最新状態をローカルに取得して
+```
+git merge
+```
+で取得した最新情報のファイルをローカルに統合する。
+この後、エラーが起きた push コマンドを再度たたけば問題なくローカル/リモートでファイルを最新状態にできる。
