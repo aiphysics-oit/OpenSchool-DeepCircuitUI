@@ -17,7 +17,11 @@ git config {ファイル名}
 ##### 設定値の確認
 ```--local -l``` : ローカル  
 ```--global -l``` : グルーバル  
-```--system -l``` : システム  
+```--system -l``` : システム 
+#### リモートリポジトリの表示
+```
+git remote -v
+```
 ### [アップロード方法]
 #### ステージング
 ```
@@ -42,7 +46,7 @@ git status
 ```
 git push origin main  
 ```
-### [ダウンロード方法](http://www.gougle.com)
+### [[ダウンロード方法](http://www.gougle.com)]
 
 #### ※初めてローカルに落とすとき
 ローカル環境でローカルリポジトリを作成。ターミナルで、任意の場所にディレクトリを作成し、作ったディレクトリに移動。
@@ -68,13 +72,17 @@ git pull
 ### [エラーと対処法]
 
 #### git push origin main 時のエラー
-`
-failed to push some refs to...
-`
+`failed to push some refs to...`
 ##### 原因
 daunloadをZipから新規的に呼び出して上書きしたため
 ##### 対処法
-こうなると、GitHabで新規作成しコピペするしかない。
+こうなると、GitHabで新規作成しコピペするしかない。  
+
+`failed to push some refs to...`
+##### 原因
+リモートリポジトリに変更を反映しようとしたため
+##### [対処法](https://kinsta.com/jp/knowledgebase/error-failed-to-push-some-refs-to/)
+`git pull`を実行する。
 ### [Logcatでの注意点]
 タグ付けは、以下のテンプレートにする。
 `package:main`  
