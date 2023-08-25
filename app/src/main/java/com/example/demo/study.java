@@ -23,7 +23,7 @@ public class study extends AppCompatActivity {
 
     public void studyStart(View view) {
         for(int i=0; i<=100;i++) {
-            nn.learn(10);
+            nn.learn(100);
             TextView text_study= findViewById(R.id.studyText);
             text_study.setText("学習中・・・" + String.valueOf(i) + "%");
         }

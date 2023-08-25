@@ -1,6 +1,8 @@
 package com.example.demo;
 
+import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import java.io.Serializable;
 import java.util.Arrays;
@@ -218,14 +220,17 @@ public class neural_network implements Serializable {
             for (int j = 0; j < 2; j++) {
                 for (int k = 0; k < 2; k++) {
                     int index = 4 * i + 2 * j + k;
+                    y[index][0]=1;
+                    y[index][1]=1;
+                    y[index][2]=1;
                     if (q_all[0][0] == i && q_all[0][1] == j && q_all[0][2] == k) {
-                        y[index][0] = 1;
+                        y[index][0] = 0;
                     }
                     if (q_all[1][0] == i && q_all[1][1] == j && q_all[1][2] == k) {
-                        y[index][1] = 1;
+                        y[index][1] = 0;
                     }
                     if (q_all[2][0] == i && q_all[2][1] == j && q_all[2][2] == k) {
-                        y[index][2] = 1;
+                        y[index][2] = 0;
                     }
                 }
             }

@@ -19,18 +19,12 @@ public class ThreadTestActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_thread_test);
+        setContentView(R.layout.activity_study);
 
         //ハンドラを生成
         mHandler = new Handler();
-
-        //main.xmlに設定したコンポーネントをid指定で取得します。
-        button      = (Button)findViewById(R.id.testButton);
-        textView    = (TextView)findViewById(R.id.testTextView);
-
         //ProgressDialogを生成します。
         progressDialog = new ProgressDialog(this);
-
         //buttonがクリックされた時の処理を登録します。
         button.setOnClickListener(new OnClickListener() {
             @Override
@@ -40,13 +34,11 @@ public class ThreadTestActivity extends Activity {
         });
     }
 
-    /**
-     * buttonがクリックされた時の処理
-     */
+    //buttonがクリックされた時の処理
+
     private void buttonProcess() {
         //ProgressDialogを表示します。
         progressDialog.show();
-
         //スレッドを生成して起動します。
         MyThread thread = new MyThread();
         thread.start();
