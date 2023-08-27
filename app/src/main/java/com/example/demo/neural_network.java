@@ -304,29 +304,7 @@ public class neural_network implements Serializable {
             System.out.println("学習bias" + String.valueOf(epoch));
             print_array_2D(bias);
         }
-//                if (epochs == 999) {
-//                    System.out.println("bias:");
-//                    System.out.println(multiply2(multiply(bias, 1000), 1000));
-//                    System.out.println("weights:");
-//                    System.out.println(multiply2(multiply(weights, 1000), 1000));
-//                    System.out.println("Rb:");
-//                    System.out.println(multiply2(multiply(multiply2(multiply(bias, 1000), 1000), 5), 2));
-//                    System.out.println("Rw:");
-//                    System.out.println(multiply2(multiply(multiply2(multiply(weights, 1000), 1000), 5), 2));
-//                }
 
-        //テスト
-        //double[][] test_input = X;
-        //double[][] test_output = sigmoid_derivative_array(add(dot(test_input,weights2),bias2));
-
-        //出力
-        //System.out.println("入力データ");
-        //System.out.println(X);
-        //System.out.println("予想");
-        //System.out.println("");
-        //System.out.println("正解");
-        //System.out.println("");
-        //System.out.println("正答率");
     }
     //写真入れ替え
     public int[] getImageResources(){
@@ -339,7 +317,7 @@ public class neural_network implements Serializable {
         else if (question_number == 2) {
             images[0] = (R.drawable.q1a1);
             images[1] = (R.drawable.q1a2);
-            images[2] = (R.drawable.q1a3);
+            images[2] = (R.drawable.q1a4);
         }
         else if (question_number == 3) {
             images[0] = (R.drawable.q2a1);

@@ -23,8 +23,14 @@ public class ThreadTestActivity extends Activity {
 
         //ハンドラを生成
         mHandler = new Handler();
+
+        //main.xmlに設定したコンポーネントをid指定で取得します。
+        button      = (Button)findViewById(R.id.studyStart);
+        textView    = (TextView)findViewById(R.id.studyText);
+
         //ProgressDialogを生成します。
         progressDialog = new ProgressDialog(this);
+
         //buttonがクリックされた時の処理を登録します。
         button.setOnClickListener(new OnClickListener() {
             @Override
@@ -34,11 +40,13 @@ public class ThreadTestActivity extends Activity {
         });
     }
 
-    //buttonがクリックされた時の処理
-
-    private void buttonProcess() {
+    /**
+     * buttonがクリックされた時の処理
+     */
+    public void buttonProcess() {
         //ProgressDialogを表示します。
         progressDialog.show();
+
         //スレッドを生成して起動します。
         MyThread thread = new MyThread();
         thread.start();

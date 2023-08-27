@@ -10,7 +10,7 @@ import android.widget.TextView;
 public class study_result extends AppCompatActivity {
     neural_network nn;
     public double scale(double x){
-        return (int)(x + 10.0)/2;
+        return (int)(x + 9.5)/2;
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
