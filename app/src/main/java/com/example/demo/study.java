@@ -69,7 +69,7 @@ public class study extends AppCompatActivity {
 
                     final int progress = j;
 
-                    nn.learn(100);
+                    nn.learn(1000);
 
                     //メインスレッドのメッセージキューにメッセージを登録します。
                     mHandler.post(new Runnable() {

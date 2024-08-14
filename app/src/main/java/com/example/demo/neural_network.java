@@ -6,6 +6,7 @@ import android.widget.TextView;
 
 import java.io.Serializable;
 import java.util.Arrays;
+import java.util.Map;
 import java.util.Random;
 
 public class neural_network implements Serializable {
@@ -32,6 +33,9 @@ public class neural_network implements Serializable {
             {0, 0, 0},
             {0, 0, 0},
             {0, 0, 0}};
+
+
+
 
     public neural_network() {
         for (int i = 0; i < 3; i++) {
@@ -213,6 +217,59 @@ public class neural_network implements Serializable {
         }
         return b;
     }
+
+    //二次元配列の最大値
+    public static double findMaxValue(double[][] array) {
+        double maxValue = Double.NEGATIVE_INFINITY;
+
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[i].length; j++) {
+                if (array[i][j] > maxValue) {
+                    maxValue = array[i][j];
+                }
+            }
+        }
+
+        return maxValue;
+    }
+
+    //絶対値の最大値
+    /*public double abs_max(double[][] a){
+        double[][] b = new double[a.length][a[0].length];
+        for(int i = 0; i < a[0].length; i++){
+            for(int j = 0; j < a.length; j++){
+                b[i][j] = Math.abs(a[i][j]);
+            }
+        }
+        return findMaxValue(b);
+    }*/
+
+    public double abs_max(double[][] array) {
+        double max = Double.NEGATIVE_INFINITY;
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[i].length; j++) {
+                if (Math.abs(array[i][j]) > max) {
+                    max = Math.abs(array[i][j]);
+                }
+            }
+        }
+        return max;
+    }
+
+    public double max(double[][] array) {
+        double max = Double.NEGATIVE_INFINITY;
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[i].length; j++) {
+                if (array[i][j] > max) {
+                    max = array[i][j];
+                }
+            }
+        }
+        return max;
+    }
+
+
+
     //学習
     public void learn_init() {
         //教師データ作成
@@ -243,12 +300,37 @@ public class neural_network implements Serializable {
         weights = new double[input_layer_size][output_layer_size];
         bias = new double[1][output_layer_size];
         System.out.println("重みとバイアスの初期化2");
+        double[][] weight = new double[input_layer_size][output_layer_size];
         for (int i = 0; i < input_layer_size; i++) {
             for (int j = 0; j < input_layer_size; j++) {
-                weights[i][j] = random.nextGaussian();
-                bias[0][j] = random.nextGaussian();
+                //weights[i][j] = random.nextGaussian();
+                weight[i][j] = random.nextGaussian()/Math.sqrt(3);
             }
         }
+        weight = multiply2 (weight,Math.sqrt(3));
+        double maxAbs = abs_max(weight);
+        for (int i = 0; i < input_layer_size; i++) {
+            for (int j = 0; j < input_layer_size; j++) {
+                weights[i][j] = weight[i][j]/maxAbs;
+            }
+        }
+        for (int j = 0; j < input_layer_size; j++) {
+            bias[0][j] = random.nextGaussian();
+        }
+        bias = multiply2(bias,Math.sqrt(3));
+        //手動
+        /*int input_layer_size = 3;
+        int output_layer_size = 3;
+        double[][] weight = new double[input_layer_size][output_layer_size];
+        weight = new double[][]{
+                {0.31453275, -0.08755267, 0.41013379},
+                {0.96442344, -0.14827221, -0.14826181},
+                {1.0, 0.4859603, -0.2972838}
+        };
+        weights = weight;
+        double[][] bias1 = new double[1][output_layer_size];
+        bias1 = new double[][]{{0.31324719, -0.26755433, -0.2688892}};
+        bias = bias1;*/
         System.out.println("重みとバイアスの初期化3");
 
         print_array_2D(weights);
@@ -289,17 +371,21 @@ public class neural_network implements Serializable {
             }
             System.out.println("学習outプットレイヤー" + String.valueOf(epoch));
             print_array_2D(output_layer);
+
             //誤差計算
             double[][] error = sub(y, output_layer);
             System.out.println("学習error" + String.valueOf(epoch));
             print_array_2D(error);
+
             //バックプロパゲーション
             double[][] output_delta = prod(error, sigmoid_derivative_array(output_layer));
             System.out.println("学習outプットdelta" + String.valueOf(epoch));
             print_array_2D(output_delta);
+
             add_equal(weights, multiply(dot(transpose(input_layer), output_delta), learning_rate));
             System.out.println("学習weight" + String.valueOf(epoch));
             print_array_2D(weights);
+
             add_equal(bias, multiply(sum(output_delta), learning_rate));
             System.out.println("学習bias" + String.valueOf(epoch));
             print_array_2D(bias);
